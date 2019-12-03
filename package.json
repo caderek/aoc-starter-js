@@ -12,6 +12,7 @@
     "shelljs": "^0.8.3"
   },
   "dependencies": {
+    "@arrows/composition": "^1.2.1",
     "get-caller-file": "^2.0.5",
     "kleur": "^3.0.3"
   }

@@ -1,9 +1,10 @@
 const { isDeepStrictEqual } = require("util")
 const kleur = require("kleur")
+const { curry } = require("@arrows/composition")
 
 let index = 0
 
-const test = (result, expected) => {
+export const test = curry((result, expected) => {
   const passed = isDeepStrictEqual(result, expected)
 
   if (passed) {
@@ -19,6 +20,4 @@ const test = (result, expected) => {
   }
 
   index++
-}
-
-module.exports = test
+})
