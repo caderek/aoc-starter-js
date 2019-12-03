@@ -4,7 +4,7 @@ const { curry } = require("@arrows/composition")
 
 let index = 0
 
-export const test = curry((result, expected) => {
+const test = curry((result, expected) => {
   const passed = isDeepStrictEqual(result, expected)
 
   if (passed) {
@@ -21,3 +21,5 @@ export const test = curry((result, expected) => {
 
   index++
 })
+
+module.exports = test
