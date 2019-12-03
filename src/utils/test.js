@@ -11,11 +11,11 @@ const test = curry((result, expected) => {
     console.log(kleur.green(`${index}: passed`))
   } else {
     console.log(kleur.gray("-----------------------------------------"))
-    console.log(
-      kleur.red(
-        `${index}: failed:\n\nResult: ${result}\nExpected: ${expected}`,
-      ),
-    )
+    console.log(kleur.red(`${index}: failed`))
+    console.log(kleur.gray("\nResult:"))
+    console.dir(result, { colors: true, depth: 0 })
+    console.log(kleur.gray("\nExpected:"))
+    console.dir(expected, { colors: true, depth: 0 })
     console.log(kleur.gray("-----------------------------------------"))
   }
 
