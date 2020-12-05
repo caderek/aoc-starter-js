@@ -1,4 +1,5 @@
-const { spawn, execSync } = require("child_process")
+const os = require('os');
+const { spawn } = require("child_process")
 const { readdirSync } = require("fs")
 const { cp } = require("shelljs")
 
@@ -10,6 +11,8 @@ if (!days.includes(day)) {
   cp("-r", "src/template", `src/${day}`)
 }
 
-spawn("nodemon", [`src/${day}/index.js`], {
+const nodemonExecutablePath = os.platform() === "win32" ? "node_modules\\.bin\\nodemon.cmd" : "nodemon";
+
+spawn(nodemonExecutablePath, [`src/${day}/index.js`], {
   stdio: "inherit",
 })
