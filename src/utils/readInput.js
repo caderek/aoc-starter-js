@@ -1,15 +1,13 @@
-const os = require('os');
+const { sep } = require("path")
 const { readFileSync } = require("fs")
 const getCallerFile = require("get-caller-file")
 
-const splitChar = os.platform() === "win32" ? "\\" : "/";
-
 const readInput = () => {
   const file = getCallerFile()
-    .split(splitChar)
+    .split(sep)
     .slice(0, -1)
     .concat("input.txt")
-    .join("/")
+    .join(sep)
 
   return readFileSync(file).toString()
 }
